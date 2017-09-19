@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+<div class="row">
+	<div class="col-md-4" ng-repeat="item in subjects">
+		<a href="#/detail/{{item.id}}" class="thumbnail">
+			<img ng-src="{{item.images.medium}}" alt="">
+			<div class="movie_info">
+				<p>影片：<span>{{item.title}}</span></p>
+				<p>类型：<span>{{item.genres.join('、')}}</span></p>
+				<p>导演：<span ng-repeat="d in item.directors">{{d.name}} {{ !$last ? '、' : ''}}</p>
+				<p>主演：<span ng-repeat="cast in item.casts">{{cast.name}} {{ !$last ? '、' : ''}}</p>
+			</div>
+			<span class="badge">{{item.rating.average}}</span>
+		</a>
+	</div>
+</div>
+<nav aria-label="Page navigation">
+	<p><span class="num">共{{total}}部电影</span><span>第{{currentPage}}/{{totalPage}}页</span></p>
+	<ul class="pagination">
+		<li ng-click="pageSkip(currentPage - 1)" ng-class="{disabled:currentPage<=1}"><a>上一页</a></li>
+		<li ng-click="pageSkip(currentPage + 1)" ng-class="{disabled:currentPage>=totalPage}"><a>下一页</a></li>
+	</ul>
+</nav>
+<div class="loading" ng-show="loading">
+	<div class="bounce1"></div>
+	<div class="bounce2"></div>
+	<div class="bounce3"></div>
+</div>

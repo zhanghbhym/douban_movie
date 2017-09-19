@@ -1,0 +1,17 @@
+<div class="media" ng-controller="MovieDetailController" id="movie_detail" id="movie_detail">
+	<div class="media-left">
+		<a>
+			<img class="media-object" ng-src="{{movie.images.large}}" alt="{{movie.title}}">
+		</a>
+	</div>
+	<div class="media-body">
+		<h2 class="media-heading">{{movie.title}}</h2>
+		<div>
+			<p>时间：<span>{{movie.year}}</span></p>
+		</div>
+		<div class="movie_summary">
+			<p>剧情简介：</p>
+			<p>{{movie.summary}}</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>douban</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		
+	</head>
+	<body ng-app="doubanApp">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">豆瓣电影</a>
+				</div>
+				<form class="navbar-form navbar-left" role="search" ng-controller="SearchController" ng-submit="search()">
+					<input type="text" class="form-control" placeholder="搜索" ng-model="search_value">
+				</form>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2" id="left_bar">
+					<ul class="nav nav-pills nav-stacked">
+				        <li add-active><a href="#/in_theaters/1">正在上映</a></li>
+				        <li add-active><a href="#/coming_soon/1">即将上映</a></li>
+				        <li add-active><a href="#/top250/1">TOP250</a></li>
+			        </ul>
+				</div>
+				<div class="col-md-10" id="main_content" ng-controller="MovieListController" ng-view>
+				</div>
+			</div>
+		</div>
+		<script src="lib/angular.js" ></script>
+		<script src="lib/angular-route.js"></script>
+		<script src="app.js"></script>
+		<script src="service/http.js"></script>
+		<script src="service/add-active.js"></script>
+		<script src="movie_list/controller.js"></script>
+		<script src="movie_detail/controller.js"></script>
+	</body>
+</html>
